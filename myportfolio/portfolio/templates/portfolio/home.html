@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varsha Namdeo | Data Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00d1ff;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #00d1ff, 0 0 10px #00d1ff; }
+            to { text-shadow: 0 0 20px #00d1ff, 0 0 30px #00d1ff; }
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #00d1ff;
+        }
+
+        .hero {
+            padding: 200px 20px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px;
+            background: #00d1ff;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: #00a8cc;
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #00d1ff;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-content {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-content ul li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-content ul li::before {
+            content: "▹";
+            color: #00d1ff;
+            margin-right: 10px;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .skill-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .project-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin: 10px auto;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        form button {
+            background: #00d1ff;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background: #00a8cc;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #00d1ff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .section {
+            animation: slideIn 1s ease-in-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .project-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Varsha Namdeo</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Hello, I'm Varsha Namdeo, a Data Engineer!</h1>
+        <p>  SQL | Python | Snowflake | Django</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+    
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>
+                I am a passionate and detail-oriented Data Engineer with expertise in designing and implementing scalable data pipelines, optimizing ETL processes, and ensuring data quality and integrity. My experience includes:
+            </p>
+            <ul>
+                <li>Developing and maintaining ETL pipelines for loading data from multiple sources (MySQL, PostgreSQL) into Snowflake, ensuring high data quality and integrity.</li>
+                <li>Implementing metadata tracking solutions to monitor data ingestion processes, tracking metrics such as total records, processed records, and load failures.</li>
+                <li>Designing and optimizing SQL queries for data extraction, transformation, and loading, improving overall query performance by 20%.</li>
+                <li>Performing data analysis using Python (Pandas) and implementing SCD (Slowly Changing Dimensions) techniques.</li>
+                <li>Creating and optimizing functions, views, and stored procedures in Snowflake and PostgreSQL to streamline data processing and improve query performance.</li>
+                <li>Developing and implementing Data Quality Services (DQS) solutions to automate data quality checks, handle null values, and ensure data consistency across datasets.</li>
+                <li>Building web applications using Django for seamless integration with data pipelines and analytics tools.</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>SQL</h3>
+                <p>Advanced query optimization, stored procedures, and database design.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Python</h3>
+                <p>Data analysis, ETL pipelines, and automation using Pandas, NumPy, and Django.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Snowflake</h3>
+                <p>Data warehousing, query optimization, and data ingestion.</p>
+            </div>
+            <div class="skill-card">
+                <h3>ETL Development</h3>
+                <p>Designing and optimizing ETL pipelines for high-performance data processing.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Data Quality</h3>
+                <p>Implementing DQS solutions and ensuring data consistency.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Django</h3>
+                <p>Building web applications for data integration and analytics.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project-card">
+                <h3>Data Validator</h3>
+                <p>Developed a script to ensure data quality before loading into the production database.</p>
+            </div>
+            <div class="project-card">
+                <h3>CSV to Snowflake</h3>
+                <p>Automated data ingestion pipeline to move CSV files into Snowflake seamlessly.</p>
+            </div>
+            <div class="project-card">
+                <h3>ETL Pipeline Optimization</h3>
+                <p>Designed and optimized ETL pipelines to improve performance by 20%.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <p>Email: vnamdeo94@gmail.com | Phone: 9111724994</p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/varsha-namdeo" target="_blank">linkedin.com/in/varsha-namdeo</a></p>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Varsha Namdeo. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/varsha-namdeo" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Varsha-namdeo" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
